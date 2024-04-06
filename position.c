@@ -6,7 +6,7 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 22:16:08 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/02 12:29:23 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/06 13:02:34 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,14 @@ int	position_of_x2(t_list *lst1, int m)
 
 	lst = lst1;
 	x = 1;
-	while (m != lst->content)
+	while (lst != NULL)
 	{
-		x++;
+		if (m == lst->content)
+			return (x);
 		lst = lst->next;
+		x++;
 	}
-	return (x);
+	return (-1);
 }
 
 int	max_int_array(int i, t_m_s *ms)

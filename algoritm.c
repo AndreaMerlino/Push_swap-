@@ -6,7 +6,7 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 20:08:22 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/04 23:08:58 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/06 12:48:04 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	algortim222(t_list **lst_a, t_list **lst_b, t_m_s *ms)
 		max_of_2_move(lst_a, lst_b, ms, &al);
 		if (ft_lstsize(*lst_a) == 3)
 			break ;
-		al.holder = 100;
+		al.holder = 100000;
 		al.temp = *lst_a;
 		node_with_less_move(lst_a, lst_b, ms, &al);
 		push_the_node_founded(lst_a, lst_b, ms, &al);
