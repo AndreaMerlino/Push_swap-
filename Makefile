@@ -1,6 +1,6 @@
 NAME := push_swap
 
-OBJS := control.o main.o reverse_rotate.o rotate.o split.o swap_push.o utils.o position.o merge_sort.o algoritm.o algoritm2.o  init.o node_with_less_move.o push_the_node_founded.o
+OBJS := control.o main.o reverse_rotate.o rotate.o split.o swap_push.o utils.o position.o merge_sort.o algoritm.o algoritm2.o  init.o node_with_less_move.o push_the_node_founded.o utils_2.o
 
 FLAGS := -Wall -Werror -Wextra
 

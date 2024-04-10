@@ -6,19 +6,34 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 18:03:11 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/02 11:50:07 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/10 10:31:31 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	number_checker(t_list *lst)
+void	number_checker_helper(t_list **lst)
+{
+	t_list	*temp;
+
+	while (*lst)
+	{
+		temp = *lst;
+		*lst = (*lst)->next;
+		free(temp);
+	}
+	*lst = NULL;
+	write(1, "Error\n", 6);
+	exit(1);
+}
+
+void	number_checker(t_list **lst)
 {
 	t_list	*temp;
 	t_list	*temp2;
 	int		contenuto;
 
-	temp = lst;
+	temp = *lst;
 	while (temp)
 	{
 		temp2 = temp;
@@ -27,10 +42,7 @@ void	number_checker(t_list *lst)
 		while (temp2)
 		{
 			if (contenuto == temp2->content)
-			{
-				write(1, "Error", 5);
-				exit(1);
-			}
+				number_checker_helper(lst);
 			temp2 = temp2->next;
 		}
 		temp = temp->next;
@@ -55,7 +67,7 @@ void	string_checker(char **argv)
 				temp++;
 			else
 			{
-				write (1, "Error", 5);
+				write (1, "Error\n", 6);
 				exit (1);
 			}
 		}
@@ -63,7 +75,7 @@ void	string_checker(char **argv)
 	}
 }
 
-void	max_min(char *contenitore)
+int	max_min(char *contenitore)
 {
 	if (((ft_strlen(contenitore) == 10) && (ft_strncmp(contenitore,
 					"2147483647", ft_strlen(contenitore)) > 0))
@@ -76,50 +88,7 @@ void	max_min(char *contenitore)
 		|| ft_strlen(contenitore) > 11 || ((ft_strlen(contenitore) == 11)
 			&& (*contenitore != '+' && *contenitore != '-')))
 	{
-		write(1, "Error", 5);
-		exit(1);
+		return (100);
 	}
-}
-
-int	min_int(t_list *lst)
-{
-	int		i;
-	t_list	*temp;
-
-	temp = lst;
-	i = temp->content;
-	temp = temp->next;
-	while (temp)
-	{
-		if (i > temp->content)
-		{
-			i = temp->content;
-			temp = temp->next;
-		}
-		else
-			temp = temp->next;
-	}
-	temp = lst;
-	return (i);
-}
-
-int	max_int(t_list *lst)
-{
-	int		i;
-	t_list	*temp;
-
-	temp = lst;
-	i = temp->content;
-	temp = temp->next;
-	while (temp)
-	{
-		if (i < temp->content)
-		{
-			i = temp->content;
-			temp = temp->next;
-		}
-		else
-			temp = temp->next;
-	}
-	return (i);
+	return (0);
 }

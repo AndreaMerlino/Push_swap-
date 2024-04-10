@@ -6,7 +6,7 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 21:03:47 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/06 13:01:16 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/09 12:19:38 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_list	*init_process(int argc, char **argv, t_tools *tool)
 		start = contenitore;
 		while (*contenitore)
 		{
-			max_min(*contenitore);
 			tool->temp = ft_calloc(sizeof(t_list), 1);
 			if (!tool->temp)
 				return (NULL);

@@ -6,7 +6,7 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 21:05:54 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/04 23:09:13 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/10 10:14:07 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,36 @@ int	after_contentvalue(int i, t_m_s *ms, t_list*lst)
 	return (t.temp);
 }
 
+int	controller2(t_list**lst_a)
+{
+	int		k;
+	t_m_s	ms;
+	t_list	*temp;
+
+	k = 0;
+	temp = *lst_a;
+	init_array(&ms, ft_lstsize(*lst_a), *lst_a);
+	merge_sort(&ms, 0, ft_lstsize(*lst_a) - 1);
+	while (temp && temp->content == ms.b[k])
+	{
+		temp = temp->next;
+		k ++;
+	}
+	if (temp)
+	{
+		free(ms.b);
+		free(ms.array);
+		return (5);
+	}
+	free(ms.b);
+	free(ms.array);
+	return (7);
+}
+
 int	main(int argc, char **argv)
 {
 	int		i;
+	int		k;
 	t_m_s	ms;
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -80,12 +107,14 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = NULL;
 	string_checker(argv);
+	controller3(argc, argv);
 	stack_a = init_stack_a(argc, argv);
-	number_checker(stack_a);
+	number_checker(&stack_a);
 	i = ft_lstsize(stack_a);
+	k = controller2(&stack_a);
 	if (i == 2 || i == 3)
 		magic_3(&stack_a, i);
-	else if (i > 3)
+	else if (i > 3 && k == 5)
 		algortim222(&stack_a, &stack_b, &ms);
 	while (stack_a)
 	{

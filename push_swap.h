@@ -6,7 +6,7 @@
 /*   By: andreamerlino <andreamerlino@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 22:18:21 by andreamerli       #+#    #+#             */
-/*   Updated: 2024/04/03 12:28:10 by andreamerli      ###   ########.fr       */
+/*   Updated: 2024/04/09 12:19:26 by andreamerli      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,14 @@ typedef struct inutile
 	int	hold;
 }	t_t;
 
+typedef struct line
+{
+	int		i;
+	char	**contenitore;
+	char	**clean;
+	char	**start;
+}	t_25;
+
 void	*ft_calloc(size_t count, size_t size);
 void	swap_a(t_list *lst);
 void	swap_b(t_list*lst);
@@ -78,8 +86,8 @@ void	reverse_rotate_b(t_list **lst_b);
 void	reverse_rotate_ab(t_list **lst_a, t_list**lst_b);
 
 void	string_checker(char **argv);
-void	number_checker(t_list*lst);
-void	max_min(char *contenitore);
+void	number_checker(t_list **lst);
+int		max_min(char *contenitore);
 void	merge_sort(t_m_s *ms, int lower, int upper);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
@@ -103,6 +111,8 @@ void	init_array(t_m_s *ms, int i, t_list *lst);
 int		before_contentvalue(int i, t_m_s *ms, t_list *lst);
 int		after_contentvalue(int i, t_m_s *ms, t_list *lst);
 void	magic_3(t_list **stack_a, int i);
+void	controller3_helper(t_25 *t, int i);
+void	controller3(int argc, char **argv);
 t_list	*ft_lstlast(t_list*lst);
 t_list	*ft_lstsecondlast(t_list *lst);
 t_list	*init_stack_a(int argc, char **argv);
