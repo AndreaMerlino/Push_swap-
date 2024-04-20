@@ -7,15 +7,18 @@ Instruction set
 
 For the following instructions, if the instruction is not possible, the part of it that can't be executed won't.
 
-Code	Instruction	Action
-sa	swap a	swaps the 2 top elements of stack a
-sb	swap b	swaps the 2 top elements of stack b
-ss	swap a + swap b	both sa and sb
-pa	push a	moves the top element of stack b at the top of stack a
-pb	push b	moves the top element of stack a at the top of stack b
-ra	rotate a	shifts all elements of stack a from bottom to top
-rb	rotate b	shifts all elements of stack b from bottom to top
-rr	rotate a + rotate b	both ra and rb
-rra	reverse rotate a	shifts all elements of stack a from top to bottom
-rrb	reverse rotate b	shifts all elements of stack b from top to bottom
-rrr	reverse rotate a + reverse rotate b	both rra and rrb
+Code	Instruction	Action.
+sa (swap a): Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
+sb (swap b): Swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.
+ss : sa and sb at the same time.
+pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.
+pb (push b): Take the first element at the top of a and put it at the top of b.
+Do nothing if a is empty.
+ra (rotate a): Shift up all elements of stack a by 1.
+The first element becomes the last one.
+rb (rotate b): Shift up all elements of stack b by 1. The first element becomes the last one.
+rr : ra and rb at the same time.
+rra (reverse rotate a): Shift down all elements of stack a by 1.The last element becomes the first one.
+rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
+rrr : rra and rrb at the same time.
